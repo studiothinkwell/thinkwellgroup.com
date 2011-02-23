@@ -1,0 +1,128 @@
+/*******************************
+*
+*	MODULE COMPATIBILITY
+*	
+*	This stylesheet controls compatibility for the most common modules.
+*	
+*******************************/
+
+
+/*******************************
+*	CONTENT
+*******************************/
+
+#node-admin-buttons input.form-submit {
+	margin-top:0;
+}
+
+div.admin {
+	padding-top:1.5em;
+}
+
+.content-add-more {
+	margin:0 0 2em;
+}
+
+/*******************************
+*	USER
+*******************************/
+
+
+
+#user-login input.form-text {
+	width:400px !important;
+}
+
+
+
+
+/*******************************
+*	VIEWS
+*******************************/
+
+#edit-views-apply,
+.views-edit-view input.form-submit
+{
+	font-size:1em;
+	padding:5px 16px;
+}
+
+#views-ui-list-views-form {
+	overflow:hidden;
+	margin-bottom:1em;
+}
+
+#edit-add-display,
+#views-ui-analyze-view-button #edit-submit 
+{
+	width:100px;
+	padding:3px 0;
+	text-align: center;
+}
+
+#views-ui-analyze-view-button {
+	padding-top: 10px;
+}
+
+#views-add-display-form #edit-display {
+	padding:0;
+	width:100px;
+	font-size:1em;
+}
+
+#views-ui-preview-form #preview-display-id {
+	margin-top:0.8em;
+	font-size:1em;
+}
+
+form#views-ui-preview-form input#preview-submit {
+	margin-top: 2.2em;
+}
+
+div.changed {
+	background:#fffad7;
+	border-style:solid;
+	border-color: #cec3bc;
+	border-width:1px 1px 0;
+}
+
+#views-ajax-pad fieldset {
+	margin:20px 0 41px 0.9em;
+	padding:9px;
+	position:relative;
+}
+
+#views-ajax-pad .views-radio-box {
+	margin-bottom:0;
+}
+
+.views-category .changed {
+	border:none;
+}
+
+
+/*******************************
+*	CCK
+*******************************/
+
+
+#edit--add-new-field-field-name,
+#edit-attributes-rel 
+{
+	width:70% !important;
+}
+
+#edit--add-new-field-type,
+#edit--add-new-field-widget-type,
+#content-display-overview select
+{
+	font-size:1em;
+}
+
+.link-field-subrow {
+	width:98%;
+}
+
+.link-field-subrow input.form-text {
+	width:95%;
+}

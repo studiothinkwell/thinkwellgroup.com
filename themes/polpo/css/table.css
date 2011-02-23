@@ -1,0 +1,63 @@
+/*******************************
+
+	TABLES
+	
+	Nice styles for drupal tables
+	
+*******************************/
+
+table {
+	width:100%;
+	margin:10px 0 21px;
+}
+
+tbody {
+	border-top:none;
+}
+
+thead th {
+	border-bottom:1px solid #CCCCCC;
+	background:#FFF url(../img/bg_table-head.png) repeat-x bottom;
+	padding:3px 5px;
+	text-align:left;
+	font-weight:bold;
+}
+
+tr {
+	padding:0;
+	border-bottom:1px solid #CCCCCC;
+}
+
+tr.even {
+	background:#f4f4f4;
+}
+
+
+tr.odd {
+	background:none;
+}
+
+td.region {
+	font-weight:bold;
+}
+
+td {
+	padding:8px 5px;
+	vertical-align:top;
+}
+
+
+/*******************************
+	Behavioural Styles
+*******************************/
+
+
+tr:hover,
+table#permissions td.hovered
+{
+	background:#e6f2ff;
+}
+
+table#permissions td.checkbox:hover {
+	background:#a8d3ff;
+}

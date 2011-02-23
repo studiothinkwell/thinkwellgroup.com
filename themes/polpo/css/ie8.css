@@ -1,0 +1,7 @@
+#statusbar div.messages, #statusbar div.help {
+	background-position:5px center !important;
+}
+
+#statusbar div.pinned {
+	background-position:5px 15px !important;
+}

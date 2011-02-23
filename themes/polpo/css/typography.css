@@ -1,0 +1,81 @@
+/*******************************
+
+	TYPOGRAPHY FOR THE MASSES
+	
+	These styles encompass all the text on your website
+	Below represents the generic styles. Other elements are broken
+	up into the categories below.
+
+	* For the best example of how all these crazy em related font-sizes 
+	  and line heights work, visit http://pxtoem.com/
+
+*******************************/
+
+
+body {
+	font-family:"Myriad", "Myriad Pro", "Segoe UI", "Trebuchet MS", Arial, Sans-serif;
+	font-size:87.5%; 
+	line-height:1.5em;
+}
+
+
+.form-text,
+.form-textarea
+{
+	font-family:Tahoma, Verdana, Monospace;
+}
+
+
+
+h1 {
+	font-size:1.714em;
+	line-height:1.0em;
+	font-weight:bold;
+}
+
+h2 {
+	font-size:1.5em;
+	font-weight:bold;	
+}
+
+h3, legend {
+	font-size: 1.143em;
+	font-weight:bold;
+}
+
+h4 {
+	font-size:1.0em;
+	font-weight:bold;
+	margin-bottom:0.5em;
+}
+
+p, ul, ol {
+	margin-bottom:1em;
+}
+
+.breadcrumb {
+	font-size:0.857em;
+}
+
+.description {
+	font-size:1.0em !important;
+	color:#666;
+}
+
+ul,
+ol
+{
+	padding-left: 1.3em;
+}
+
+em {
+	font-style:italic;
+}
+
+b, strong {
+	font-weight:bold;
+}
+
+dd {
+	margin-bottom:1em;
+}

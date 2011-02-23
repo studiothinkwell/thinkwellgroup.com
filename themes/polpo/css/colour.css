@@ -1,0 +1,24 @@
+/*******************************
+
+	COLOUR
+	
+	Controls the colour of the theme. For now.
+
+*******************************/
+
+
+/*******************************
+	Links Backgrounds
+*******************************/
+
+a {
+	color:#0468d1;
+}
+
+
+#header {
+	background-color:#006395;
+	background-image:url('../img/gradient.png');
+	color:#FFFFFF;
+}
+
