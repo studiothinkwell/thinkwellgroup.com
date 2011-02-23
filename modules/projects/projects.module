@@ -1,0 +1,89 @@
+<?php
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+global $base_path;
+define('DS' , DIRECTORY_SEPARATOR);
+define('REAL_ESCAPE' , 1);
+
+define('CHAR_MAX_LENGTH',400);
+
+//ini_set("memory_limit",512* 1024 * 1024);
+//ini_set("post_max_size",256* 1024 * 1024);
+//ini_set("upload_max_filesize",256* 1024 * 1024);
+
+function redirectUrlProjects($type , $typeid)
+{
+	$query = " SELECT * FROM druprojects WHERE id = '".$typeid."' ";
+    $result = db_query($query);
+	$data = db_fetch_array($result);
+	
+	return 	$base_path."/".$type."/".$data[redirect_url] ;
+}
+
+function projects_help($section) {
+  switch ($section) {
+    case 'admin/help#projects':
+      $output = '<p>projects world help...</p>';
+      return $output;
+    case 'admin/modules#description':
+      return 'projects';
+  }
+}
+
+function projects_menu($may_cache = '') {
+  $items = array();
+
+  if ($may_cache) {
+  }
+  else {
+
+    $items['projects'] = array(
+    'title' => 'Projects', // page title
+    'description' => "List site contents.",
+    'page callback' => 'projects_list',
+    'access arguments' => array('administer nodes'),
+    'file' => 'projects.admin.inc'
+    );
+
+    $items['projects/new'] = array(
+   // 'title' => 'New Projects ', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'projects_page',
+    'access arguments' => array('administer nodes'),
+    'file' => 'projects.pages.inc'
+    );
+
+
+    $items['projects/save'] = array(
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'projects_save',
+    'access arguments' => array('administer nodes'),
+    'file' => 'projects.save.inc'
+    );
+	 $items['projects/delete'] = array(
+    'page callback' => 'projects_delete',
+    'access arguments' => array('administer nodes'),
+    'file' => 'projects.save.inc'
+    );
+  }
+
+  return $items;
+}
+
+function projects_get($arr , $index , $default = '' , $real_escape = 0)
+{
+    if(isset($arr[$index]))
+    {
+        if($real_escape)
+        {
+            if(!is_array($arr[$index]))
+            return db_escape_string($arr[$index]);
+        }
+        return $arr[$index];
+    }
+
+    return $default;
+}
+?>

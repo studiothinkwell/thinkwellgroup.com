@@ -1,0 +1,89 @@
+<?php
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+global $base_path;
+define('DS' , DIRECTORY_SEPARATOR);
+define('REAL_ESCAPE' , 1);
+
+define('CHAR_MAX_LENGTH',400);
+
+function redirectUrlnews($type , $typeid)
+{
+	$query = " SELECT * FROM drunews WHERE id = '".$typeid."' ";
+    $result = db_query($query);
+	$data1 = db_fetch_array($result);
+	
+	return 	$base_path."/".$type."/".$data1[redirect_url] ;
+}
+
+
+function news_help($section) {
+  switch ($section) {
+    case 'admin/help#news':
+      $output = '<p>News</p>';
+      return $output;
+    case 'admin/modules#description':
+      return 'News';
+  }
+}
+
+function news_menu($may_cache = '') {
+  $items = array();
+
+  if ($may_cache) {
+  }
+  else {
+
+    $items['news'] = array(
+    'title' => 'News', // page title
+    'description' => "List.",
+    'page callback' => 'news_list',
+    'access arguments' => array('administer nodes'),
+    'file' => 'news.admin.inc'
+    );
+
+    $items['news/new'] = array(
+    //'title' => 'news', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'news_page',
+    'access arguments' => array('administer nodes'),
+    'file' => 'news.pages.inc'
+    );
+
+
+    $items['news/save'] = array(
+    //'title' => 'news', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'news_save',
+    'access arguments' => array('administer nodes'),
+    'file' => 'news.save.inc'
+    );
+	 $items['news/delete'] = array(
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'news_delete',
+    'access arguments' => array('administer nodes'),
+    'file' => 'news.pages.inc'
+    );
+
+  }
+
+  return $items;
+}
+
+function news_get($arr , $index , $default = '' , $real_escape = 0)
+{
+    if(isset($arr[$index]))
+    {
+        if($real_escape)
+        {
+            if(!is_array($arr[$index]))
+            return db_escape_string($arr[$index]);
+        }
+        return $arr[$index];
+    }
+
+    return $default;
+}
+?>

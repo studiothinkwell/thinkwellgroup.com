@@ -1,0 +1,5 @@
+name = News
+description = Used to create news pages.
+package = Core - optional
+version = VERSION
+core = 6.x

@@ -1,0 +1,5 @@
+name = campaign
+description = Used to create campaigns.
+package = Core - optional
+version = VERSION
+core = 6.x

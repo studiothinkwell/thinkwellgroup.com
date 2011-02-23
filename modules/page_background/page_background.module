@@ -1,0 +1,66 @@
+<?php
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+global $base_path;
+define('DS' , DIRECTORY_SEPARATOR);
+//define('MISC_PATH','D:\phpdev\wamp\www\drupal\drupal\misc');
+define('REAL_ESCAPE' , 1);
+
+define('CHAR_MAX_LENGTH',400);
+
+function page_background_help($section) {
+  switch ($section) {
+    case 'admin/help#page_background':
+      $output = '<p>page_background world help...</p>';
+      return $output;
+    case 'admin/modules#description':
+      return 'page_background';
+  }
+}
+
+function page_background_menu($may_cache = '') {
+  $items = array();
+
+  if ($may_cache) {
+  }
+  else {
+
+    $items['page_background'] = array(
+    'title' => 'Page background', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'page_background_page',
+    'access arguments' => array('administer nodes'),
+    'file' => 'page_background.pages.inc'
+    );
+
+
+    $items['page_background/save'] = array(
+    'title' => 'Page background', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'page_background_save',
+    'access arguments' => array('administer nodes'),
+    'file' => 'page_background.save.inc'
+    );
+
+  }
+
+  return $items;
+}
+
+function page_background_get($arr , $index , $default = '' , $real_escape = 0)
+{
+    if(isset($arr[$index]))
+    {
+        if($real_escape)
+        {
+            if(!is_array($arr[$index]))
+            return db_escape_string($arr[$index]);
+        }
+        return $arr[$index];
+    }
+
+    return $default;
+}
+?>

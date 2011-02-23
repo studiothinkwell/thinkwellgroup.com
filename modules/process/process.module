@@ -1,0 +1,81 @@
+<?php
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+global $base_path;
+define('DS' , DIRECTORY_SEPARATOR);
+
+define('REAL_ESCAPE' , 1);
+
+define('CHAR_MAX_LENGTH',400);
+
+function process_help($section) {
+  switch ($section) {
+    case 'admin/help#process':
+      $output = '<p>process world help...</p>';
+      return $output;
+    case 'admin/modules#description':
+      return 'process';
+  }
+}
+
+function process_menu($may_cache = '') {
+  $items = array();
+
+  if ($may_cache) {
+  }
+  else {
+
+    $items['process'] = array(
+    'title' => 'Process', // page title
+    'description' => "List site contents.",
+    'page callback' => 'process_list',
+    'access arguments' => array('administer nodes'),
+    'file' => 'process.admin.inc'
+    );
+
+    $items['process/new'] = array(
+   // 'title' => 'Process', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'process_page',
+    'access arguments' => array('administer nodes'),
+    'file' => 'process.pages.inc'
+    );
+
+
+    $items['process/save'] = array(
+    //'title' => 'Process', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'process_save',
+    'access arguments' => array('administer nodes'),
+    'file' => 'process.save.inc'
+    );
+	$items['process/delete'] = array(
+   // 'title' => 'Process', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'process_delete',
+    'access arguments' => array('administer nodes'),
+    'file' => 'process.pages.inc'
+    );
+
+  }
+
+  return $items;
+}
+
+function process_get($arr , $index , $default = '' , $real_escape = 0)
+{
+    if(isset($arr[$index]))
+    {
+        if($real_escape)
+        {
+            if(!is_array($arr[$index]))
+            return db_escape_string($arr[$index]);
+        }
+        return $arr[$index];
+    }
+
+    return $default;
+}
+?>

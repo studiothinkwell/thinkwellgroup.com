@@ -1,0 +1,5 @@
+name = Projects
+description = Used to create projects.
+package = Core - optional
+version = VERSION
+core = 6.x

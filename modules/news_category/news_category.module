@@ -1,0 +1,74 @@
+<?php
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+global $base_path;
+define('DS' , DIRECTORY_SEPARATOR);
+
+define('REAL_ESCAPE' , 1);
+
+define('CHAR_MAX_LENGTH',400);
+
+function news_category_help($section) {
+  switch ($section) {
+    case 'admin/help#news_category':
+      $output = '<p>news_category world help...</p>';
+      return $output;
+    case 'admin/modules#description':
+      return 'news_category';
+  }
+}
+
+function news_category_menu($may_cache = '') {
+  $items = array();
+
+  if ($may_cache) {
+  }
+  else {
+
+    $items['news_category'] = array(
+    'title' => 'News Categories', // page title
+    'description' => "List site contents.",
+    'page callback' => 'news_category_list',
+    'access arguments' => array('administer nodes'),
+    'file' => 'news_category.admin.inc'
+    );
+
+    $items['news_category/new'] = array(
+   // 'title' => 'news_category', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'news_category_page',
+    'access arguments' => array('administer nodes'),
+    'file' => 'news_category.pages.inc'
+    );
+
+
+    $items['news_category/save'] = array(
+    //'title' => 'news_category', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'news_category_save',
+    'access arguments' => array('administer nodes'),
+    'file' => 'news_category.save.inc'
+    );
+
+  }
+
+  return $items;
+}
+
+function news_category_get($arr , $index , $default = '' , $real_escape = 0)
+{
+    if(isset($arr[$index]))
+    {
+        if($real_escape)
+        {
+            if(!is_array($arr[$index]))
+            return db_escape_string($arr[$index]);
+        }
+        return $arr[$index];
+    }
+
+    return $default;
+}
+?>

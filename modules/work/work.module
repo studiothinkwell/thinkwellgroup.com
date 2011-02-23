@@ -1,0 +1,74 @@
+<?php
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+global $base_path;
+define('DS' , DIRECTORY_SEPARATOR);
+define('MISC_PATH','D:\phpdev\wamp\www\drupal\drupal\misc');
+define('REAL_ESCAPE' , 1);
+
+define('CHAR_MAX_LENGTH',400);
+
+function work_help($section) {
+  switch ($section) {
+    case 'admin/help#work':
+      $output = '<p>work ...</p>';
+      return $output;
+    case 'admin/modules#work':
+      return 'work';
+  }
+}
+
+function work_menu($may_cache = '') {
+  $items = array();
+
+  if ($may_cache) {
+  }
+  else {
+
+    $items['work'] = array(
+    'title' => 'Work', // page title
+    'description' => "List site contents.",
+    'page callback' => 'work_page',
+    'access arguments' => array('administer nodes'),
+    'file' => 'work.pages.inc'
+    );
+
+    /*$items['work/new'] = array(
+    'title' => 'Work Description', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'work_page',
+    'access arguments' => array('administer nodes'),
+    'file' => 'work.pages.inc'
+    );*/
+
+
+    $items['work/save'] = array(
+    'title' => 'Work', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'work_save',
+    'access arguments' => array('administer nodes'),
+    'file' => 'work.save.inc'
+    );
+
+  }
+
+  return $items;
+}
+
+function work_get($arr , $index , $default = '' , $real_escape = 0)
+{
+    if(isset($arr[$index]))
+    {
+        if($real_escape)
+        {
+            if(!is_array($arr[$index]))
+            return db_escape_string($arr[$index]);
+        }
+        return $arr[$index];
+    }
+
+    return $default;
+}
+?>
