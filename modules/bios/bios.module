@@ -1,0 +1,88 @@
+<?php
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+global $base_path;
+define('DS' , DIRECTORY_SEPARATOR);
+define('REAL_ESCAPE' , 1);
+
+define('CHAR_MAX_LENGTH',400);
+
+function bios_help($section) {
+  switch ($section) {
+    case 'admin/help#bios':
+      $output = '<p>projects world help...</p>';
+      return $output;
+    case 'admin/modules#description':
+      return 'bios';
+  }
+}
+
+function redirectUrl($type , $typeid)
+{
+	$query = " SELECT * FROM drubios WHERE id = '".$typeid."' ";
+    $result = db_query($query);
+	$data = db_fetch_array($result);
+	
+	return 	$base_path."/".$type."/".$data[redirect_url] ;
+}
+
+function bios_menu($may_cache = '') {
+  $items = array();
+
+  if ($may_cache) {
+  }
+  else {
+
+    $items['bioslist'] = array(
+    'title' => 'Bios', // page title
+    'description' => "List site contents.",
+    'page callback' => 'bios_list',
+    'access arguments' => array('administer nodes'),
+    'file' => 'bios.admin.inc'
+    );
+	
+	$items['bios/new'] = array(
+   // 'title' => 'New Bios', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'bios_page',
+    'access arguments' => array('administer nodes'),
+    'file' => 'bios.pages.inc'
+    );
+
+
+    $items['bios/save'] = array(
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'bios_save',
+    'access arguments' => array('administer nodes'),
+    'file' => 'bios.save.inc'
+    );
+	 
+	$items['bios/delete'] = array(
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'bios_delete',
+    'access arguments' => array('administer nodes'),
+    'file' => 'bios.pages.inc'
+    );
+
+  }
+
+  return $items;
+}
+
+function bios_get($arr , $index , $default = '' , $real_escape = 0)
+{
+    if(isset($arr[$index]))
+    {
+        if($real_escape)
+        {
+            if(!is_array($arr[$index]))
+            return db_escape_string($arr[$index]);
+        }
+        return $arr[$index];
+    }
+
+    return $default;
+}
+?>

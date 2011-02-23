@@ -1,0 +1,5 @@
+name = Project category
+description = Used to create categories for news pages.
+package = Core - optional
+version = VERSION
+core = 6.x

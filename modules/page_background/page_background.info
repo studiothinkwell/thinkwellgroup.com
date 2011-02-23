@@ -1,0 +1,5 @@
+name = Page backgrounds
+description = Used to Upload backgrounds.
+package = Core - optional
+version = VERSION
+core = 6.x

@@ -1,0 +1,74 @@
+<?php
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+global $base_path;
+define('DS' , DIRECTORY_SEPARATOR);
+define('MISC_PATH','D:\phpdev\wamp\www\drupal\drupal\misc');
+define('REAL_ESCAPE' , 1);
+
+define('CHAR_MAX_LENGTH',400);
+
+function project_category_help($section) {
+  switch ($section) {
+    case 'admin/help#project_category':
+      $output = '<p>Used to manage project category</p>';
+      return $output;
+    case 'admin/modules#description':
+      return '<p>Used to manage project category</p>';
+  }
+}
+
+function project_category_menu($may_cache = '') {
+  $items = array();
+
+  if ($may_cache) {
+  }
+  else {
+
+    $items['project_category'] = array(
+    'title' => 'Project categories', // page title
+    'description' => "List project category.",
+    'page callback' => 'project_category_list',
+    'access arguments' => array('administer nodes'),
+    'file' => 'project_category.admin.inc'
+    );
+
+    $items['project_category/new'] = array(
+  //  'title' => 'New category', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'project_category_page',
+    'access arguments' => array('administer nodes'),
+    'file' => 'project_category.pages.inc'
+    );
+
+
+    $items['project_category/save'] = array(
+    //'title' => 'save', // page title
+    'description' => "View, edit, and delete your site's content.",
+    'page callback' => 'project_category_save',
+    'access arguments' => array('administer nodes'),
+    'file' => 'project_category.save.inc'
+    );
+
+  }
+
+  return $items;
+}
+
+function project_category_get($arr , $index , $default = '' , $real_escape = 0)
+{
+    if(isset($arr[$index]))
+    {
+        if($real_escape)
+        {
+            if(!is_array($arr[$index]))
+            return db_escape_string($arr[$index]);
+        }
+        return $arr[$index];
+    }
+
+    return $default;
+}
+?>

@@ -1,0 +1,5 @@
+name = process
+description = Used to create process pages.
+package = Core - optional
+version = VERSION
+core = 6.x

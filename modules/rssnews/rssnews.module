@@ -1,0 +1,89 @@
+<?php
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+function rssnews_menu($may_cache = '') {
+   
+    drupal_add_feed(base_path().'rss.xml', 'Thinkwell');
+
+    $items = array();
+
+    /*if ($may_cache) {
+    }
+    else {*/
+        $items['rss.xml'] = array(
+            'title' => 'RSS feed',
+            'page callback' => 'rssnews_rss',
+            'access arguments' => array('access content'),
+            'type' => MENU_CALLBACK,
+        );
+    /*}*/
+
+  return $items;
+}
+
+function rssnews_rss()
+{
+    global $base_url , $language;
+
+    $query = " SELECT * FROM druprojects  order by `order` DESC ";
+    $result = db_query($query);
+
+    $items .= format_rss_item("", "", "<br/>");
+    $items .= format_rss_item("Projects.", "", "<h1></h1>");
+    while($row = db_fetch_object($result))
+    {
+        $item->title = $row->title;
+        $item->link = $base_url."/projectdetails?type=".$row->id;
+        $item->text = $row->home_description;
+        $items .= format_rss_item($item->title, $item->link, $item->text);
+    }
+    
+    $query = " SELECT * FROM drunews  order by `news_date` DESC ";
+    $result = db_query($query);
+    
+    $items .= format_rss_item("", "", "<br/>");
+    $items .= format_rss_item("News.", "", "<h1></h1>");
+    while($row = db_fetch_object($result))
+    {
+        $item->title = $row->news_heading;
+        $item->link = $base_url."/newsdetail?news_id=".$row->id;
+        $item->text = $row->news_description;
+        $items .= format_rss_item($item->title, $item->link, $item->text);
+        
+    }
+
+    $items .= format_rss_item("", "", "<br/>");
+    $items .= format_rss_item("Thinkwell Group Inc.", "", "<h1></h1>");
+    //$items .= "<div id='feedTitle' ><div id='feedTitleContainer' ><h1 id='feedTitleText' ></h1></div></div>";
+    
+    $query = " SELECT * FROM drubios order by `order` ASC";
+    $result = db_query($query);
+    while($row = db_fetch_object($result))
+    {
+        $item->title = $row->title;
+        $item->link = $base_url."/bios?type=".$row->id;
+        $item->text = $row->description;
+        $items .= format_rss_item($item->title, $item->link, $item->text);
+    }
+
+    $channel = array(
+        'version'     => '2.0',
+        'title'       => "Thinkwell",
+        'link'        => $base_url,
+        'description' => "",
+        'language'    => $language->language
+    );
+    
+    $output = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+    $output .= "<rss version=\"". $channel["version"] ."\" xml:base=\"". $base_url ."\" ". drupal_attributes($namespaces) .">\n";
+    $output .= format_rss_channel($channel['title'], $channel['link'], $channel['description'], $items, $channel['language']);
+    $output .= "</rss>\n";
+
+    drupal_set_header('Content-Type: application/rss+xml; charset=utf-8');
+    print $output;
+
+}
+?>

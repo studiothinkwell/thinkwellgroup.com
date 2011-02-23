@@ -1,0 +1,5 @@
+name = RSS
+description = Used to create Rss.
+package = Core - optional
+version = VERSION
+core = 6.x
