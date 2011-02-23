@@ -1,0 +1,126 @@
+/*******************************
+
+	STYLES
+	
+	Generic styles for misc page elements.
+
+*******************************/
+
+a {
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+
+/*******************************
+*	Header Region
+*******************************/
+
+#header {
+	border-bottom:1px solid #e1e1e1;
+}
+
+#pagebar {
+	background:#FFFFFF url(../img/bg_pagebar.png) repeat-x bottom;
+	border-top:1px solid #f6f6f6;
+}
+
+
+#header h1 {
+	position:relative;
+	top:39px;
+}
+
+#header h1.break {
+	border-left:1px solid #FFF;
+	padding:0 0 0 14px;
+	margin-left:21px;
+	float:left;
+}
+
+#header img {
+	float:left;
+}
+
+.breadcrumb {
+	margin:4px 0 0;
+	padding:0;
+}
+
+#pagebar h1 {
+	margin:8px 0 10px;
+}
+
+
+
+/*******************************
+*	Footer Region
+*******************************/
+
+p.author-message {
+	padding-top:2em;
+	color:#ccc;
+	font-size:0.857em;
+}
+
+p.author-message a {
+	text-decoration:underline;
+	color:#bbb;
+}
+
+p.author-message a:hover {
+	color:#333;
+}
+
+/*******************************
+	Blocks
+*******************************/
+
+.block {
+	margin-bottom:3em;
+}
+
+
+/*******************************
+	Fast Tasks
+*******************************/
+
+#fast-tasks {
+	margin-bottom:3em;
+}
+
+#fast-tasks ul {
+	list-style-type:none;
+	padding:0;
+}
+
+#fast-tasks li {
+	padding:0 0 12px 30px;
+	line-height:24px;
+	background-image:url(../img/spt_fast-tasks.gif);
+	background-repeat:no-repeat;
+}
+
+#fast-tasks li#fast-task-0 {
+	background-position:left -200px;
+}
+
+#fast-tasks li#fast-task-1 {
+	background-position:left 2px;
+}
+
+#fast-tasks li#fast-task-2 {
+	background-position:left -50px;
+}
+
+#fast-tasks li#fast-task-3 {
+	background-position:left -100px;
+}
+
+#fast-tasks li#fast-task-4 {
+	background-position:left -150px;
+	padding-bottom:0;
+}

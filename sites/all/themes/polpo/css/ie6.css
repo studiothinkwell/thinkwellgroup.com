@@ -1,0 +1,21 @@
+#pagebar {
+	zoom:1;
+}
+
+ul.primary, ul.secondary {
+	margin-bottom:-10px;
+}
+
+#statusbar div.messages, #statusbar div.help {
+	background-position:5px center !important;
+	height:20px;
+}
+
+#statusbar div.pinned {
+	background-position:5px 15px !important;
+}
+
+.form-submit {
+	padding-left:0;
+	padding-right:0;
+}

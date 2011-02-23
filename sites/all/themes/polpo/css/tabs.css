@@ -1,0 +1,97 @@
+/*******************************
+
+	TABS
+	
+	CSS for Tabs, primary and secondary. 
+	
+	**This file can be included in other themes to provide a nicer base look for tabs.
+
+*******************************/
+
+
+ul.primary {
+	border-bottom:none;
+	border-collapse:inherit;
+	height:auto;
+	line-height:normal;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	float:left;
+}
+
+ul.tabs li {
+	float:left;
+}
+
+ul.primary li a {
+	display:block;
+	background-color:#888888;
+	color:#FFF;
+	border-style:none;
+	border-width:1px;
+	height:auto;
+	margin:5px 4px 0 0;
+	padding:5px 21px;
+	text-decoration:none;
+	font-size:16px;
+	line-height:1.0em;
+}
+
+ul.primary li.active a {
+	background-color:#FFFFFF;
+	color:#000;
+	font-weight:bold;
+	font-size:19px;
+	border-style:none;
+	margin-top:0;
+	padding-top:7px;
+}
+
+ul.tabs li a:hover {
+	background-color:#515151;
+	text-decoration:none;
+}
+
+ul.tabs li.active a:hover {
+	background-color:#FFF;
+}
+
+
+ul.secondary {
+	border-bottom:none;
+	margin:3px 0 0;
+	padding:0;
+	float:right;
+}
+
+ul.secondary li {
+	border-right:none;
+	padding:0;
+}
+
+ul.secondary li a {
+	display:block;
+	background-color:#888888;
+	color:#FFF;
+	border-style:none;
+	border-width:1px;
+	height:auto;
+	margin:4px 4px 0 0;
+	padding:5px 18px;
+	text-decoration:none;
+	font-size:14px;
+	line-height:1.0em;
+}
+
+ul.secondary li.active a {
+	background-color:#FFFFFF;
+	color:#000;
+	font-weight:bold;
+	font-size:16px;
+	border-style:none;
+	margin-top:0;
+	padding-top:7px;
+}

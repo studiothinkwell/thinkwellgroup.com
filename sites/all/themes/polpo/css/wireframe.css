@@ -1,0 +1,46 @@
+/*******************************
+
+	WIREFRAMES
+	
+	Creates a base layout for the template.
+
+*******************************/
+
+body#polpo {
+	min-width:960px;
+}
+
+#header {
+	padding:0 6%;
+	height:100px;
+}
+
+#pagebar {
+	padding:0 6%;
+	overflow:hidden;
+}
+
+#statusbar {
+	padding:0 6%;
+	margin:21px 0 21px;
+}
+
+#content {
+	padding:0 10% 21px;
+	margin:21px 0 0;
+}
+
+#maincol {
+	float:left;
+	width:76%;
+}
+
+#sidecol {
+	float:right;
+	width:20%;
+}
+
+#footer {
+	clear:both;
+	padding:21px 0 0;
+}

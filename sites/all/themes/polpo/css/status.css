@@ -1,0 +1,113 @@
+/*******************************
+
+	STATUS
+	
+	Creates lovely status bar messages.
+
+*******************************/
+
+#statusbar a {
+	color: inherit;
+	font-weight:bold;
+}
+
+#statusbar ul,
+.messages ul
+{
+	padding-left:1em;
+	margin-bottom:0;
+}
+
+#statusbar .help,
+#statusbar .messages
+{
+	padding:10px 10px 10px 4.45%;
+	margin-bottom:12px;
+	min-height:20px;
+}
+
+#statusbar .help {
+	background:#f0f7ff url(../img/ico_help.gif) no-repeat 0.7% center;
+	border:1px solid #b8caef;
+	color:#135ca7;
+	padding-right:50px;
+	position:relative;
+}
+
+.help p {
+	margin-bottom:10px;
+}
+
+.help .more-help-link {
+	position:absolute;
+	bottom:2px;
+	right:10px;
+}
+
+#statusbar div.pinned {
+	background-position:0.7% 15px !important;
+}
+
+#statusbar .status {
+	background-image:url(../img/ico_status.gif);
+	background-position: 0.7% center; 
+	background-repeat:no-repeat;
+}
+
+#statusbar .warning {	
+	background-image:url(../img/ico_warning.gif);
+	background-position: 0.7% center; 
+	background-repeat:no-repeat;
+}
+
+#statusbar .error {
+	background-image:url(../img/ico_error.gif);
+	background-position: 0.7% center; 
+	background-repeat:no-repeat;
+}
+
+div.status, 
+tr.status,
+tr.ok,
+div.hilited
+{
+	background-color:#d6ffc8 !important;
+	color: #1a3e04;
+}
+
+div.warning,
+tr.warning,
+tr.drag-previous,
+div.changed
+{
+	background-color:#fffad7 !important;
+	color: #93430c;
+}
+
+div.error,
+tr.error {
+	background-color:#ffc8c8 !important;
+	color: #582008;
+}
+
+div.status
+{
+	border:1px solid #bbd2a9;
+	margin-bottom:12px;
+	padding:5px;
+}
+
+div.warning
+{
+	border:1px solid #cec3bc;
+	margin-bottom:12px;
+	padding:5px;
+}
+
+div.error
+{
+	border:1px solid #c08888;
+	margin-bottom:12px;
+	padding:5px;
+}
+

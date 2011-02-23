@@ -1,0 +1,29 @@
+ul.primary, ul.secondary {
+	margin-bottom:-10px;
+}
+
+#statusbar div.messages, #statusbar div.help {
+	background-position:5px center !important;
+}
+
+#statusbar div.pinned {
+	background-position:5px 15px !important;
+}
+
+.form-submit {
+	padding-left:0;
+	padding-right:0;
+}
+
+#node-admin-filter .form-select {
+	width:190px !important;
+	font-size:14px;
+}
+
+#node-admin-content #edit-operation-wrapper {
+	margin-top:-10px;
+}
+
+#node-admin-content #edit-submit-1 {
+	margin-top:10px;
+}
